@@ -1,3 +1,38 @@
+# Fork that builds the client for MIPS ARCH
+Compiled Version can be found here https://github.com/rew822/cloudflared-misp-thingino/cmd/cloudflared/cloudflared.
+
+I want to use cloudflared in thingino cams and needed a MIPS Version. Thankfully I found this repo that described the process (https://github.com/aladdinAlmarashly/Cloudflare-Tunnel-Client-for-Arch-MIPS/tree/main).
+
+** Thingino **
+- At this time thingino did not support HTTP3/QUIC so us have to used with the parameter "--protocol http2"
+- You can use the cloudflared service install ... command but you would have to rename the service /etc/init.d/cloudflared with a prefix S (e.g S97cloudflared).
+
+1. **Use a Linux Environment:**
+   - Ensure you are working in a Linux environment as it provides the necessary tools and compatibility for building the binary.
+
+2. **Install Go Language:**
+   - Make sure Go language (GoLang) is installed on your system. You can download and install it from the [official Go website](https://golang.org/dl/).
+
+3. **Download Cloudflare Tunnel Client Release:**
+   - Fork the [Cloudflare Tunnel](https://github.com/cloudflare/cloudflared) repo on GitHub.
+
+4. **Navigate to the Build Directory:**
+   - After extracting the downloaded release, navigate to the `cloudflared/cmd/cloudflared/` directory in the terminal.
+
+5. **Run the Build Command:**
+   - Execute the following command to build the binary for MIPS architecture:
+
+     ```bash
+     CGO_ENABLED=0 GOOS=linux GOARCH=mipsle GOMIPS=softfloat go build -a -installsuffix cgo -ldflags "-s -w -extldflags '-static'" .
+     ```
+
+6. **Locate the Built Binary:**
+   - Upon successful completion of the build process, you will find a file named `cloudflared` in the same directory. This is your MIPS-compatible binary.
+
+**Note:** The build command provided sets several environment variables to ensure compatibility with MIPS architecture. `CGO_ENABLED=0` disables CGo, enabling a fully static binary. `GOOS=linux` and `GOARCH=mipsle` target the Linux operating system and MIPS (little-endian) architecture, respectively. `GOMIPS=softfloat` ensures compatibility with systems not supporting hardware floating-point operations.
+
+
+
 # Cloudflare Tunnel client
 
 Contains the command-line client for Cloudflare Tunnel, a tunneling daemon that proxies traffic from the Cloudflare network to your origins.
