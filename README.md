@@ -1,11 +1,11 @@
 # Fork that builds the client for MIPS ARCH
-Compiled Version can be found here https://github.com/rew822/cloudflared-misp-thingino/cmd/cloudflared/cloudflared.
+Compiled Version can be found [here](https://github.com/rew822/cloudflared-mips-thingino/blob/master/cmd/cloudflared/cloudflared).
 
 I want to use cloudflared in thingino cams and needed a MIPS Version. Thankfully I found this repo that described the process (https://github.com/aladdinAlmarashly/Cloudflare-Tunnel-Client-for-Arch-MIPS/tree/main).
 
-** Thingino **
-- At this time thingino did not support HTTP3/QUIC so us have to used with the parameter "--protocol http2"
+**Thingino**
 - You can use the cloudflared service install ... command but you would have to rename the service /etc/init.d/cloudflared with a prefix S (e.g S97cloudflared).
+- For now thingino did not support HTTP3/QUIC, add this paramter to the init.d script after run: "--protocol http2"
 
 1. **Use a Linux Environment:**
    - Ensure you are working in a Linux environment as it provides the necessary tools and compatibility for building the binary.
