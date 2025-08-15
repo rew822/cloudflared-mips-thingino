@@ -1,6 +1,9 @@
 # Fork that builds the client for MIPS ARCH
 Compiled Version can be found [here](https://github.com/rew822/cloudflared-mips-thingino/blob/master/cmd/cloudflared/cloudflared).
 
+Last compiled with with cloudflared 2025.8.0
+
+
 I want to use cloudflared in thingino cams and needed a MIPS Version. Thankfully I found this repo that described the process (https://github.com/aladdinAlmarashly/Cloudflare-Tunnel-Client-for-Arch-MIPS/tree/main).
 
 **Thingino**
